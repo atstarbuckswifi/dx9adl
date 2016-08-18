@@ -1,0 +1,24 @@
+LIBRARY "DX9ADL.dll"
+DESCRIPTION 'DX9ADL as a DLL'
+EXETYPE NT
+SUBSYSTEM WINDOWS
+CODE SHARED EXECUTE
+DATA WRITE
+EXPORTS
+    ReleaseNil
+    SetupMatrices
+    DrawAxis
+    DX9_CreateVertexBuffer
+    DX9_Lock
+    DX9_Unlock
+    DX9_StoreVertices
+    DX9_LoadVertices
+    DX9_SetTexture
+    DX9_RenderVertices
+    DrawString
+    BltString
+    BltTexture
+    InitD3DApp
+    MsgLoop
+    DX9_Mode
+    DX9_Status

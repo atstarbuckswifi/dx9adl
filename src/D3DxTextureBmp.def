@@ -1,0 +1,13 @@
+LIBRARY "D3DxTextureBmp.dll"
+DESCRIPTION 'D3DxTextureBmp as a DLL'
+EXETYPE NT
+SUBSYSTEM WINDOWS
+CODE SHARED EXECUTE
+DATA WRITE
+EXPORTS
+    D3DXTXB_CreateTexture
+    D3DXTXB_LockRect
+    D3DXTXB_UnlockRect
+    D3DXTXB_RenderFontGlyph
+    D3DXTXB_CopyTexture
+    D3DXTXB_RewriteTexture

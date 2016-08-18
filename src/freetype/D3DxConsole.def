@@ -1,0 +1,10 @@
+LIBRARY "D3DxConsole.dll"
+DESCRIPTION 'D3DxConsole as a DLL'
+EXETYPE NT
+SUBSYSTEM WINDOWS
+CODE SHARED EXECUTE
+DATA WRITE
+EXPORTS
+    debugalloc
+    debugout
+    debugfree

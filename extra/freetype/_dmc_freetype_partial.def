@@ -1,0 +1,20 @@
+LIBRARY freetype
+DESCRIPTION 'freetype as a DLL'
+EXETYPE NT
+SUBSYSTEM WINDOWS
+CODE SHARED EXECUTE
+DATA WRITE
+EXPORTS
+    _FT_Init_FreeType=FT_Init_FreeType
+    _FT_Done_FreeType=FT_Done_FreeType
+    _FT_New_Face=FT_New_Face
+    _FT_New_Memory_Face=FT_New_Memory_Face
+    _FT_Done_Face=FT_Done_Face
+    _FT_Set_Char_Size=FT_Set_Char_Size
+    _FT_Set_Transform=FT_Set_Transform
+    _FT_Load_Glyph=FT_Load_Glyph
+    _FT_Load_Char=FT_Load_Char
+    _FT_Get_Char_Index=FT_Get_Char_Index
+    _FT_Outline_New=FT_Outline_New
+    _FT_Outline_Done=FT_Outline_Done
+    _FT_Outline_Decompose=FT_Outline_Decompose

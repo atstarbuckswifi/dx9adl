@@ -1,0 +1,17 @@
+LIBRARY d3dx9
+DESCRIPTION 'd3dx9 as a DLL'
+EXETYPE NT
+SUBSYSTEM WINDOWS
+CODE SHARED EXECUTE
+DATA WRITE
+EXPORTS
+    _D3DXVec3Project@24=D3DXVec3Project
+    _D3DXCreateFontIndirectA@12=D3DXCreateFontIndirectA
+    _D3DXCreateFontA@48=D3DXCreateFontA
+    _D3DXCreateSprite@8=D3DXCreateSprite
+    _D3DXCreateTextureFromFileA@12=D3DXCreateTextureFromFileA
+    _D3DXMatrixRotationX@8=D3DXMatrixRotationX
+    _D3DXMatrixRotationY@8=D3DXMatrixRotationY
+    _D3DXMatrixRotationZ@8=D3DXMatrixRotationZ
+    _D3DXMatrixLookAtLH@16=D3DXMatrixLookAtLH
+    _D3DXMatrixPerspectiveFovLH@20=D3DXMatrixPerspectiveFovLH

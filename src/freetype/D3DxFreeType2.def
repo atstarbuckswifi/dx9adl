@@ -1,0 +1,18 @@
+LIBRARY "D3DxFreeType2.dll"
+DESCRIPTION 'D3DxFreeType2 as a DLL'
+EXETYPE NT
+SUBSYSTEM WINDOWS
+CODE SHARED EXECUTE
+DATA WRITE
+EXPORTS
+    D3DXFT2_MoveToFunc
+    D3DXFT2_LineToFunc
+    D3DXFT2_ConicToFunc
+    D3DXFT2_CubicToFunc
+    D3DXFT2_GlyphContours
+    D3DXFT2_GlyphAlloc
+    D3DXFT2_GlyphFree
+    D3DXFT2_GlyphBmp
+    D3DXFT2_GlyphShowBmp
+    D3DXFT2_GlyphOutline
+    D3DXFT2_Status

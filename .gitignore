@@ -33,7 +33,7 @@
 *.su
 
 # custom
-./.ref/
+./.ref/*
 ./dist/
 ./build/
 *~
