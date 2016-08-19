@@ -72,8 +72,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrev, LPSTR sCmdLine, int nShow)
 {
   RENDERD3DITEMSSTATE istat = {0};
   istat.width = CLI_WIDTH, istat.height = CLI_HEIGHT;
-  istat.fgc = D3DCOLOR_ARGB(255, 192, 192, 192);
   istat.bgc = D3DCOLOR_ARGB(192, 32, 32, 32);
+  istat.fgc = D3DCOLOR_ARGB(255, 192, 192, 192);
   istat.mode = 1 | 0x0CC00000;
   InitD3DApp(hInst, nShow, szClassName, szAppName,
     &istat, InitD3DItems, CleanupD3DItems, RenderD3DItems);
