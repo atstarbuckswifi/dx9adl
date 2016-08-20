@@ -2,7 +2,7 @@ BASEPATH = \private\dx9
 CC = \dm\bin\dmc.exe
 DXINCS = -I $(BASEPATH)\dxsdk\include
 FTINCS = -I $(BASEPATH)\FreeType\freetype-2.4.11-custom-windll\include \
-         -I $(BASEPATH)\FreeType
+         -I .\freetype
 CFLAGS = $(DXINCS) $(FTINCS)
 LINK = \dm\bin\link.exe
 LFLAGS =

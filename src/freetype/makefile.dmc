@@ -1,7 +1,7 @@
 BASEPATH = \private\dx9
 CC = \dm\bin\dmc.exe
 FTINCS = -I $(BASEPATH)\FreeType\freetype-2.4.11-custom-windll\include \
-         -I $(BASEPATH)\FreeType
+         -I .
 CFLAGS = $(FTINCS)
 LINK = \dm\bin\link.exe
 LFLAGS =
