@@ -25,18 +25,21 @@ _dmc_freetype.lib : _dmc_freetype_partial.def
 	copy /y _dmc_freetype.lib freetype.lib
 	copy /y freetype.dll ..
 	copy /y freetype.lib ..
+	copy /y freetype.dll ..\..\dll\
 
 D3DxConsole.dll : D3DxConsole.def D3DxConsole.h D3DxConsole.c
 	$(CC) $(DLLARGS) D3DxConsole.c $(LIBS)
 	copy /y D3DxConsole.DLL ..
 	copy /y D3DxConsole.lib ..
 	copy /y D3DxConsole.h ..
+	copy /y D3DxConsole.DLL ..\..\dll\
 
 D3DxFreeType2.dll : freetype.lib D3DxConsole.dll \
  D3DxFreeType2.def D3DxFT2_types.h D3DxFreeType2.h D3DxFreeType2.c
 	$(CC) $(DLLARGS) D3DxFreeType2.c $(MAKEDLL)
 	copy /y D3DxFreeType2.DLL ..
 	copy /y D3DxFreeType2.lib ..
+	copy /y D3DxFreeType2.DLL ..\..\dll\
 
 freetype2_test_0001.exe : freetype.lib D3DxConsole.dll D3DxFreeType2.dll \
  freetype2_test_0001.c

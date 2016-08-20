@@ -26,25 +26,30 @@ clean :
 _dmc_d3d9.lib : _dmc_d3d9_partial.def
 	\bin\7z e -y ..\extra\_dmc_d3d9dx9.zip d3d9.dll
 	\dm\bin\implib _dmc_d3d9.lib _dmc_d3d9_partial.def
+	copy /y d3d9.dll ..\dll\
 
 _dmc_d3dx9.lib : _dmc_d3dx9_partial.def
 	\bin\7z e -y ..\extra\_dmc_d3d9dx9.zip D3DX9.dll
 	\dm\bin\implib _dmc_d3dx9.lib _dmc_d3dx9_partial.def
+	copy /y D3DX9.dll ..\dll\
 
 D3DxTextureBmp.dll : $(DXLIBS) D3DxConsole.dll \
  D3DxTextureBmp.def D3DxTextureBmp.h D3DxTextureBmp.c
 	$(CC) $(DLLARGS) D3DxTextureBmp.c $(DXLIBS) D3DxConsole.lib kernel32.lib \
  $(MAKEDLL)
+	copy /y D3DxTextureBmp.DLL ..\dll\
 
 dx9adl.dll : $(DXLIBS) D3DxConsole.dll \
  dx9adl.def quaternion.h dx9adl.h dx9adl.c
 	$(CC) $(DLLARGS) dx9adl.c $(DXLIBS) D3DxConsole.lib kernel32.lib $(LIBS) \
  $(DXINCS)
+	copy /y dx9adl.DLL ..\dll\
 
 D3DxGlyph.dll : $(DXLIBS) D3DxConsole.dll dx9adl.dll \
  D3DxGlyph.def D3DxGlyph.h D3DxGlyph.c
 	$(CC) $(DLLARGS) D3DxGlyph.c $(DXLIBS) D3DxConsole.lib kernel32.lib \
  dx9adl.lib $(MAKEDLL)
+	copy /y D3DxGlyph.DLL ..\dll\
 
 dx9test0001.exe : $(DXLIBS) D3DxConsole.dll \
  D3DxTextureBmp.dll dx9adl.dll \
