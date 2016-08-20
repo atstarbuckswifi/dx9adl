@@ -13,12 +13,13 @@ from pyDx9adl import *
 
 PSO_D3D, PSO_DEV, PSO_SPRITE, PSO_FONT, PSO_STRING, PSO_STRVBUF = range(6)
 TXSRC, TXDST = range(2)
+IMGSRC = '..\\res\\_col_4.png'
 
 def initD3DItems(pIS):
   debugout('test callback initD3DItems\n')
   q = cast(pIS, POINTER(RenderD3DItemsState))[0]
   d9f = cast(q.d9fnd, POINTER(D9Foundation))[0]
-  D3DXCreateTextureFromFileA(d9f.pDev, 'res\\_col_4.png', PtrPtrU(pIS, TXSRC))
+  D3DXCreateTextureFromFileA(d9f.pDev, IMGSRC, PtrPtrU(pIS, TXSRC))
   D3DXTXB_CreateTexture(d9f.pDev, 256, 256, PtrPtrU(pIS, TXDST))
   debugout('pTextureSrc: %08X\n', PtrUO(pIS, TXSRC))
   debugout('pTexture: %08X\n', PtrUO(pIS, TXDST))

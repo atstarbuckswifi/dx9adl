@@ -39,6 +39,8 @@
 #define WIDTH 64 // 640
 #define HEIGHT 48 // 480
 
+#define FACE "..\\..\\res\\mikaP.ttf"
+
 unsigned char g_image[HEIGHT][WIDTH];
 
 int main(int argc, char **argv)
@@ -46,7 +48,7 @@ int main(int argc, char **argv)
   DWORD r;
   CUSTOMRECT rct = {sizeof(g_image[0]), g_image};
   GLYPH_TBL gt = {
-    NULL, NULL, "mikaP.ttf", L"3\u30422\u3041\u3045", 1000.f, 25.f, 0, 0,
+    NULL, NULL, FACE, L"3\u30422\u3041\u3045", 1000.f, 25.f, 0, 0,
     7, DEPTH, WIDTH, HEIGHT, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 
   debugalloc();

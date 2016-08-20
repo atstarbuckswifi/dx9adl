@@ -32,7 +32,7 @@ DWORD TXSRC = 0, TXDST = 1;
 BOOL InitD3DItems(RENDERD3DITEMSSTATE *pIS)
 {
   debugout("callback InitD3DItems\n");
-  D3DXCreateTextureFromFileA(FNDD(pIS), "res\\_D_go.png",
+  D3DXCreateTextureFromFileA(FNDD(pIS), "..\\res\\_D_go.png",
     (LPDIRECT3DTEXTURE9 *)PPU(pIS, TXSRC));
   D3DXTXB_CreateTexture(FNDD(pIS), 256, 256, PPU(pIS, TXDST));
   return TRUE;

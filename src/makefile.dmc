@@ -1,0 +1,63 @@
+BASEPATH = \private\dx9
+CC = \dm\bin\dmc.exe
+DXINCS = -I $(BASEPATH)\dxsdk\include
+FTINCS = -I $(BASEPATH)\FreeType\freetype-2.4.11-custom-windll\include \
+         -I $(BASEPATH)\FreeType
+CFLAGS = $(DXINCS) $(FTINCS)
+LINK = \dm\bin\link.exe
+LFLAGS =
+FTFLAGS = -D_DLL
+LIBS = winmm.lib
+DXLIBS = _dmc_d3d9.lib _dmc_d3dx9.lib
+D9LIBS = D3DxTextureBmp.lib dx9adl.lib D3DxGlyph.lib
+FTLIBS = D3DxConsole.lib D3DxFreeType2.lib
+DLLARGS = -WD -L/implib
+MAKEEXE = $(LIBS) $(DXLIBS) $(D9LIBS) $(FTLIBS) $(CFLAGS) $(FTFLAGS)
+MAKEDLL = $(CFLAGS) $(FTFLAGS)
+
+all : _dmc_d3d9.lib _dmc_d3dx9.lib \
+ D3DxTextureBmp.dll dx9adl.dll D3DxGlyph.dll \
+ dx9test0001.exe dx9graph.exe dx9sample.exe
+
+clean :
+	del *.obj
+	del *.map
+
+_dmc_d3d9.lib : _dmc_d3d9_partial.def
+	\bin\7z e -y ..\extra\_dmc_d3d9dx9.zip d3d9.dll
+	\dm\bin\implib _dmc_d3d9.lib _dmc_d3d9_partial.def
+
+_dmc_d3dx9.lib : _dmc_d3dx9_partial.def
+	\bin\7z e -y ..\extra\_dmc_d3d9dx9.zip D3DX9.dll
+	\dm\bin\implib _dmc_d3dx9.lib _dmc_d3dx9_partial.def
+
+D3DxTextureBmp.dll : $(DXLIBS) D3DxConsole.dll \
+ D3DxTextureBmp.def D3DxTextureBmp.h D3DxTextureBmp.c
+	$(CC) $(DLLARGS) D3DxTextureBmp.c $(DXLIBS) D3DxConsole.lib kernel32.lib \
+ $(MAKEDLL)
+
+dx9adl.dll : $(DXLIBS) D3DxConsole.dll \
+ dx9adl.def quaternion.h dx9adl.h dx9adl.c
+	$(CC) $(DLLARGS) dx9adl.c $(DXLIBS) D3DxConsole.lib kernel32.lib $(LIBS) \
+ $(DXINCS)
+
+D3DxGlyph.dll : $(DXLIBS) D3DxConsole.dll dx9adl.dll \
+ D3DxGlyph.def D3DxGlyph.h D3DxGlyph.c
+	$(CC) $(DLLARGS) D3DxGlyph.c $(DXLIBS) D3DxConsole.lib kernel32.lib \
+ dx9adl.lib $(MAKEDLL)
+
+dx9test0001.exe : $(DXLIBS) D3DxConsole.dll \
+ D3DxTextureBmp.dll dx9adl.dll \
+ dx9test0001.c
+	$(CC) dx9test0001.c $(DXLIBS) D3DxConsole.lib $(LIBS) \
+ D3DxTextureBmp.lib dx9adl.lib $(DXINCS)
+
+dx9graph.exe : $(DXLIBS) D3DxConsole.dll D3DxFreeType2.dll \
+ D3DxTextureBmp.dll dx9adl.dll D3DxGlyph.dll \
+ dx9graph.c
+	$(CC) dx9graph.c $(MAKEEXE)
+
+dx9sample.exe : $(DXLIBS) D3DxConsole.dll D3DxFreeType2.dll \
+ D3DxTextureBmp.dll dx9adl.dll D3DxGlyph.dll \
+ dx9sample.c
+	$(CC) dx9sample.c $(MAKEEXE)

@@ -1,0 +1,44 @@
+BASEPATH = \private\dx9
+CC = \dm\bin\dmc.exe
+FTINCS = -I $(BASEPATH)\FreeType\freetype-2.4.11-custom-windll\include \
+         -I $(BASEPATH)\FreeType
+CFLAGS = $(FTINCS)
+LINK = \dm\bin\link.exe
+LFLAGS =
+FTFLAGS = -D_DLL
+LIBS = kernel32.lib
+FTLIBS = D3DxConsole.lib freetype.lib
+DLLARGS = -WD -L/implib
+MAKEDLL = $(LIBS) $(FTLIBS) $(CFLAGS) $(FTFLAGS)
+
+all : _dmc_freetype.lib \
+ D3DxConsole.dll D3DxFreeType2.dll \
+ freetype2_test_0001.exe
+
+clean :
+	del *.obj
+	del *.map
+
+_dmc_freetype.lib : _dmc_freetype_partial.def
+	\bin\7z e -y ..\..\extra\freetype\_dmc_freetype.zip freetype.dll
+	\dm\bin\implib _dmc_freetype.lib _dmc_freetype_partial.def
+	copy /y _dmc_freetype.lib freetype.lib
+	copy /y freetype.dll ..
+	copy /y freetype.lib ..
+
+D3DxConsole.dll : D3DxConsole.def D3DxConsole.h D3DxConsole.c
+	$(CC) $(DLLARGS) D3DxConsole.c $(LIBS)
+	copy /y D3DxConsole.DLL ..
+	copy /y D3DxConsole.lib ..
+	copy /y D3DxConsole.h ..
+
+D3DxFreeType2.dll : freetype.lib D3DxConsole.dll \
+ D3DxFreeType2.def D3DxFT2_types.h D3DxFreeType2.h D3DxFreeType2.c
+	$(CC) $(DLLARGS) D3DxFreeType2.c $(MAKEDLL)
+	copy /y D3DxFreeType2.DLL ..
+	copy /y D3DxFreeType2.lib ..
+
+freetype2_test_0001.exe : freetype.lib D3DxConsole.dll D3DxFreeType2.dll \
+ freetype2_test_0001.c
+	$(CC) freetype2_test_0001.c D3DxFreeType2.lib D3DxConsole.lib \
+ $(CFLAGS) $(FTFLAGS)

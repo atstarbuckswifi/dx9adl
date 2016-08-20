@@ -34,18 +34,18 @@
 #include "D3DxTextureBmp.h"
 #include "D3DxConsole.h"
 
-#define FNT_FACE "FreeType\\mikaP.ttf"
-// #define FNT_FACE "FreeType\\SourceCodePro-Regular.ttf"
-// #define FNT_FACE "FreeType\\InconsolataGo-Regular.ttf"
-// #define FNT_FACE "FreeType\\InconsolataGo-Bold.ttf"
-// #define FNT_FACE "FreeType\\Inconsolata.otf"
+#define FNT_FACE "..\\res\\mikaP.ttf"
+// #define FNT_FACE "..\\res\\SourceCodePro-Regular.ttf"
+// #define FNT_FACE "..\\res\\InconsolataGo-Regular.ttf"
+// #define FNT_FACE "..\\res\\InconsolataGo-Bold.ttf"
+// #define FNT_FACE "..\\res\\Inconsolata.otf"
 
-#define IMG_SAMPLE "res\\_Nashinoki_Shrine.png"
-#define IMG_COL4 "res\\_col_4.png"
-#define IMG_D_00 "res\\_D_00.png"
-#define IMG_D_01 "res\\_D_01.dds" // "res\\_D_01.png"
-#define IMG_D_02 "res\\_D_02.png"
-#define IMG_D_go "res\\_D_go.png"
+#define IMG_SAMPLE "..\\res\\_Nashinoki_Shrine.png"
+#define IMG_COL4 "..\\res\\_col_4.png"
+#define IMG_D_00 "..\\res\\_D_00.png"
+#define IMG_D_01 "..\\res\\_D_01.dds" // "..\\res\\_D_01.png"
+#define IMG_D_02 "..\\res\\_D_02.png"
+#define IMG_D_go "..\\res\\_D_go.png"
 
 #if 0
 #define CLI_WIDTH (200 * 4)

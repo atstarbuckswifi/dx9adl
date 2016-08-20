@@ -13,7 +13,7 @@ from pyDx9adl import *
 
 PSO_D3D, PSO_DEV, PSO_SPRITE, PSO_FONT, PSO_STRING, PSO_STRVBUF = range(6)
 TXSRC, TXDST = range(2)
-IMGSRC = 'res\\_cycloid_panda_rainbowball_256.png'
+IMGSRC = '..\\res\\_cycloid_panda_rainbowball_256.png'
 
 def initD3DItems(pIS):
   debugout('test callback initD3DItems\n')

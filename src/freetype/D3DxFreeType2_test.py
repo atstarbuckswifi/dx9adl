@@ -48,9 +48,10 @@ def main():
   td, tw, th = 1, 64, 48
   buf = ctypes.create_string_buffer(th * tw)
   rct = CustomRect(tw, cast(pointer(buf), c_void_p))
-  gt = GlyphTbl(0, 0, 'mikaP.ttf', u'3\u30422\u3041\u3045', 1000., 25., 0, 0,
+  face = r'..\..\res\mikaP.ttf'
+  gt = GlyphTbl(0, 0, face, u'3\u30422\u3041\u3045', 1000., 25., 0, 0,
     3, td, tw, th, cast(pointer(rct), c_void_p), 0, 0, 0, 0, 0, 0, 0)
-#   argc, argv = 3, ParamArgs('thisfile', 'mikaP.ttf', 'abcXYZ')
+#   argc, argv = 3, ParamArgs('thisfile', face, 'abcXYZ')
 #   r = D3DXFT2_GlyphOutline(argc, POINTER(ParamArgs)(argv)) # OK but old
 #   # r = D3DXFT2_GlyphOutline(argc, byref(argv)) # OK but old
   r = D3DXFT2_GlyphOutline(byref(gt)) # OK new
