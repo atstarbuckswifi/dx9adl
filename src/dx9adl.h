@@ -53,7 +53,7 @@ typedef ULONG UINT_PTR;
 // to include d3dx9.h all, funcs in d3dx9math.inl must be encapsulated into dll
 #include <d3dx9.h>
 
-#define IMG_STRING "res\\_string.png" // 600 x 96
+#define IMG_STRING "..\\res\\_string.png" // 600 x 96
 #define IMG_STRING_W 512
 #define IMG_STRING_H 512
 
