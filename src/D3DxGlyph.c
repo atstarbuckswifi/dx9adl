@@ -65,14 +65,14 @@ __DGPORT BOOL D3DXGLP_GlyphContours(GLYPH_TBL *gt)
           p->c.v.z = v->z / gt->ratio;
           p->v.tv = p->v.tu = 0.0f;
         }
-        if(gt->matrix){ QFV(qs, p->c.v); QXM(qd, qs, *mat); QTV(p->c.v, qd); }
+        if(mat){ QFV(qs, p->c.v); QXM(qd, qs, *mat); QTV(p->c.v, qd); }
         p->c.color = v->bgc;
         if(gt->mode & 0x00000004){ ++(CUSTOMVERTEX *)p; }
         if(gt->mode & 0x00000008){ ++(CUSTOMCOR *)p; }
         // duplicate dot first point
         memcpy(p, &cont->points[n], sizeof(CUSTOMCOR));
         if(gt->mode & 0x00000004){ p->v.tv = p->v.tu = 0.0f; }
-        if(gt->matrix){ QFV(qs, p->c.v); QXM(qd, qs, *mat); QTV(p->c.v, qd); }
+        if(mat){ QFV(qs, p->c.v); QXM(qd, qs, *mat); QTV(p->c.v, qd); }
         p->c.color = v->bgc;
         if(gt->mode & 0x00000004){ ++(CUSTOMVERTEX *)p; }
         if(gt->mode & 0x00000008){ ++(CUSTOMCOR *)p; }
@@ -80,7 +80,7 @@ __DGPORT BOOL D3DXGLP_GlyphContours(GLYPH_TBL *gt)
       // contour point
       memcpy(p, &cont->points[n], sizeof(CUSTOMCOR));
       if(gt->mode & 0x00000004){ p->v.tu = getNthUV(n), p->v.tv = 0.0f; }
-      if(gt->matrix){ QFV(qs, p->c.v); QXM(qd, qs, *mat); QTV(p->c.v, qd); }
+      if(mat){ QFV(qs, p->c.v); QXM(qd, qs, *mat); QTV(p->c.v, qd); }
       if(gt->mode & 0x00000004){ ++(CUSTOMVERTEX *)p; }
       if(gt->mode & 0x00000008){ ++(CUSTOMCOR *)p; }
       // expand z depth
@@ -88,7 +88,7 @@ __DGPORT BOOL D3DXGLP_GlyphContours(GLYPH_TBL *gt)
         memcpy(p, &cont->points[n], sizeof(CUSTOMCOR));
         p->c.v.z = v->z / gt->ratio;
         p->v.tu = getNthUV(n), p->v.tv = 1.0f;
-        if(gt->matrix){ QFV(qs, p->c.v); QXM(qd, qs, *mat); QTV(p->c.v, qd); }
+        if(mat){ QFV(qs, p->c.v); QXM(qd, qs, *mat); QTV(p->c.v, qd); }
         ++(CUSTOMVERTEX *)p;
       }
     }
