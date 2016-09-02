@@ -12,8 +12,6 @@ Sample
 Relations
 ---------
 
-DirectX.jl https://github.com/HatsuneMiku/DirectX.jl
-
 
 License
 -------
